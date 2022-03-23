@@ -36,3 +36,21 @@ TEST(recursiveSum, manyElements)
     const std::vector<int> vec{1, 2, 3, 4, 5};
     EXPECT_EQ(recursiveSum(vec.cbegin(), vec.cend()), 15);
 }
+
+TEST(recursiveNumberOfElements, zeroElements)
+{
+    const std::vector<int> vec{};
+    EXPECT_EQ(recursiveNumberOfElements(vec.cbegin(), vec.cend()), 0);
+}
+
+TEST(recursiveNumberOfElements, oneElement)
+{
+    const std::vector<int> vec{77};
+    EXPECT_EQ(recursiveNumberOfElements(vec.cbegin(), vec.cend()), 1);
+}
+
+TEST(recursiveNumberOfElements, manyElements)
+{
+    const std::vector<int> vec{1, 3, 5, 7, 9};
+    EXPECT_EQ(recursiveNumberOfElements(vec.cbegin(), vec.cend()), 5);
+}

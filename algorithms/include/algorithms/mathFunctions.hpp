@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 #include <iterator>
 
 template <typename T>
@@ -37,3 +38,12 @@ unsigned recursiveSum(Iter begin, Iter end)
     return 0;
 }
 
+template <typename Iter>
+std::size_t recursiveNumberOfElements(Iter begin, Iter end)
+{
+    if (begin == end)
+    {
+        return 0;
+    }
+    return 1 + recursiveNumberOfElements(std::next(begin), end);
+}
