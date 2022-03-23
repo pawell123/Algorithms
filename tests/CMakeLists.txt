@@ -17,6 +17,7 @@ enable_testing()
 add_executable(
   algorithms_tests
   binarySearch_tests.cpp
+  mathFunctions_tests.cpp
   sortAlgorithms_tests.cpp
 )
 

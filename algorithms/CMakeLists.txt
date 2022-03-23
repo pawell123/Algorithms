@@ -1,5 +1,6 @@
 set(HEADERS "include/algorithms/binarySearch.hpp"
-            "include/algorithms/sortAlgorithms.hpp")
+            "include/algorithms/sortAlgorithms.hpp"
+            "include/algorithms/mathFunctions.hpp")
 
 add_library(algorithms_library ${HEADERS})
 
