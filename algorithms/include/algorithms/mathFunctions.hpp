@@ -1,4 +1,5 @@
 #pragma once
+#include <iterator>
 
 template <typename T>
 T factorial(unsigned n)
@@ -26,6 +27,13 @@ T recursiveFactorial(unsigned n)
     return n * recursiveFactorial<T>(n-1);
 }
 
-
-
+template <typename Iter>
+unsigned recursiveSum(Iter begin, Iter end)
+{
+    while (begin != end)
+    {
+        return *begin + recursiveSum(std::next(begin), end);
+    }
+    return 0;
+}
 
