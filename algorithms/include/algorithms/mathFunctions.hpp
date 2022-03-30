@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <iterator>
+#include <stdexcept>
 
 template <typename T>
 T factorial(unsigned n)
@@ -46,4 +47,24 @@ std::size_t recursiveNumberOfElements(Iter begin, Iter end)
         return 0;
     }
     return 1 + recursiveNumberOfElements(std::next(begin), end);
+}
+
+template <typename Iter>
+Iter recursiveMaximumValue(Iter begin, Iter end)
+{
+    if (std::distance(begin, end) == 0)
+    {
+        return end;
+    }
+    if (std::distance(begin, end) == 1)
+    {
+        return begin;
+    }
+
+    const auto nextBegin = std::next(begin);
+    if (std::distance(begin, end) == 2)
+    {
+        return *begin > *nextBegin ? begin : nextBegin;
+    }
+    return *begin > *recursiveMaximumValue(nextBegin, end) ? begin : recursiveMaximumValue(nextBegin, end);
 }

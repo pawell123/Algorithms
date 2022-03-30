@@ -54,3 +54,33 @@ TEST(recursiveNumberOfElements, manyElements)
     const std::vector<int> vec{1, 3, 5, 7, 9};
     EXPECT_EQ(recursiveNumberOfElements(vec.cbegin(), vec.cend()), 5);
 }
+
+TEST(recursiveMaximumValue, emptyList)
+{
+    const std::vector<int> vec;
+    EXPECT_EQ(recursiveMaximumValue(vec.cbegin(), vec.cend()), vec.cend());
+}
+
+TEST(recursiveMaximumValue, oneElement)
+{
+    const std::vector<int> vec{7};
+    EXPECT_EQ(recursiveMaximumValue(vec.cbegin(), vec.cend()), vec.cbegin());
+}
+
+TEST(recursiveMaximumValue, elements123)
+{
+    const std::vector<int> vec{1, 2, 3};
+    EXPECT_EQ(recursiveMaximumValue(vec.cbegin(), vec.cend()), std::prev(vec.cend()));
+}
+
+TEST(recursiveMaximumValue, elements321)
+{
+    const std::vector<int> vec{3, 2, 1};
+    EXPECT_EQ(recursiveMaximumValue(vec.cbegin(), vec.cend()), vec.cbegin());
+}
+
+TEST(recursiveMaximumValue, elements231)
+{
+    const std::vector<int> vec{2, 3, 1};
+    EXPECT_EQ(recursiveMaximumValue(vec.cbegin(), vec.cend()), std::next(vec.cbegin(), 1));
+}
